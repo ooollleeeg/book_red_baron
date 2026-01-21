@@ -1,0 +1,217 @@
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 3.5rem); /* Subtract mobile header height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-black);
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    min-height: calc(100vh - 5rem);
+  }
+}
+
+/* Background */
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  filter: grayscale(100%) contrast(125%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem 6rem 1rem; /* Add bottom padding for fade */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    gap: 2rem;
+    padding: 5rem 2rem;
+  }
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  color: var(--color-white);
+  font-size: 2.25rem; /* Adjusted for mobile */
+  line-height: 1;
+  letter-spacing: 0.025em;
+  max-width: 100%;
+  margin: 0;
+}
+
+@media (min-width: 480px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    max-width: 56rem;
+  }
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  color: #fecaca; /* red-100 */
+  font-size: 1.125rem;
+  line-height: 1.3;
+  font-style: italic;
+  max-width: 100%;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: 2rem;
+    line-height: 1.2;
+    max-width: 42rem;
+  }
+}
+
+.hero-description {
+  font-family: var(--font-heading);
+  color: var(--color-white);
+  font-size: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: 0.025em;
+  max-width: 100%;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-description {
+    font-size: 3rem;
+    max-width: 64rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+    .hero-description {
+        font-size: 4rem;
+    }
+}
+
+/* Button */
+.btn-buy-hero {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 20rem; /* Limit width on tablet/large phones */
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+  box-shadow: 0 0 20px rgba(138, 28, 28, 0.5);
+  border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  .btn-buy-hero {
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    width: auto;
+    max-width: none;
+  }
+}
+
+.btn-buy-hero:hover {
+  background-color: var(--color-red-dark);
+  box-shadow: 0 0 30px rgba(138, 28, 28, 0.8);
+}
+
+.btn-buy-overlay {
+  position: absolute;
+  inset: 0;
+  margin-top: -0.25rem;
+  border-radius: 0.5rem;
+  opacity: 0.3;
+  background: linear-gradient(to bottom, transparent, transparent, #000);
+}
+
+.btn-buy-text {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .btn-buy-text {
+    font-size: 1.5rem;
+  }
+}
+
+.btn-buy-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s;
+}
+
+@media (min-width: 768px) {
+  .btn-buy-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.btn-buy-hero:hover .btn-buy-icon {
+  transform: translateX(0.5rem);
+}
+
+/* Fade Bottom */
+.hero-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background: linear-gradient(to top, var(--color-stone-100), transparent);
+  z-index: 20;
+}
+
+@media (min-width: 768px) {
+  .hero-fade-bottom {
+    height: 6rem;
+  }
+}

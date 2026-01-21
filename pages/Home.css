@@ -1,0 +1,87 @@
+.section-about-book {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #EAE0D5;
+  position: relative;
+}
+
+.section-planes {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.planes-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(18, 18, 17, 0.3);
+}
+
+.section-biography {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #C6AC8F;
+}
+
+@media (min-width: 768px) {
+  .section-biography {
+    padding: 2rem;
+  }
+}
+
+.section-buy-now {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 42px;
+  overflow: hidden;
+}
+
+.buy-now-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.buy-now-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(18, 18, 17, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.payment-strip {
+  width: 100%;
+  height: 104px;
+  background-color: #181811;
+  margin-top: 42px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .payment-strip {
+    gap: 59px;
+  }
+}

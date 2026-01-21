@@ -1,0 +1,83 @@
+.riveted-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Staatliches", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.riveted-button:hover {
+  background-color: #c1262c !important;
+  transform: translateY(-2px);
+}
+
+.btn-decoration {
+  position: absolute;
+  transition: transform 0.3s ease-out;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+}
+
+.btn-line-tl {
+  left: -8px;
+  top: -16px;
+}
+
+.btn-line-br {
+  right: -8px;
+  bottom: -16px;
+}
+
+.riveted-button:hover .btn-line-tl,
+.riveted-button:hover .btn-line-br {
+  transform: rotate(-90deg);
+}
+
+.btn-plus-bl {
+  left: -18.5px;
+  bottom: -18.5px;
+  transform: rotate(-90deg);
+}
+
+.btn-plus-tr {
+  right: -18.5px;
+  top: -18.5px;
+  transform: rotate(-90deg);
+}
+
+.riveted-button:hover .btn-plus-bl,
+.riveted-button:hover .btn-plus-tr {
+  transform: rotate(0deg);
+}
+
+.btn-minus-bl-min {
+  left: 10.5px;
+  bottom: -18.5px;
+}
+
+.btn-minus-tr-min {
+  right: 10.5px;
+  top: -18.5px;
+}
+
+.riveted-button:hover .btn-minus-bl-min,
+.riveted-button:hover .btn-minus-tr-min {
+  transform: rotate(180deg);
+}
+
+.btn-rivet {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: rgba(255, 241, 218, 0.8);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-rivet-tl { top: 6px; left: 6px; }
+.btn-rivet-tr { top: 6px; right: 6px; }
+.btn-rivet-bl { bottom: 6px; left: 6px; }
+.btn-rivet-br { bottom: 6px; right: 6px; }

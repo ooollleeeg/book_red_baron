@@ -1,0 +1,64 @@
+.planes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .planes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.plane-card {
+  cursor: pointer;
+}
+
+.plane-image-wrapper {
+  height: 16rem;
+  overflow: hidden;
+  background-color: var(--color-gray-300);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.plane-image-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+}
+
+.plane-card:hover .plane-image-inner {
+  transform: scale(1.05);
+}
+
+.plane-img {
+  width: 100%;
+  height: 100%;
+}
+
+.plane-img-filter {
+  filter: grayscale(100%) contrast(125%);
+}
+
+.plane-name-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-white);
+}
+
+.badge-dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.badge-red {
+  background-color: var(--color-red-dark);
+}
+
+.plane-desc {
+  color: var(--color-stone-600);
+}

@@ -1,0 +1,68 @@
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-red: #8a1c1c;
+  --color-red-dark: #701515;
+  --color-stone-100: #f5f5f4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-amber-100: #fef3c7;
+
+  --font-heading: 'Staatliches', cursive;
+  --font-body: 'Scheherazade New', serif;
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-logo: 'Tektur', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-stone-100);
+  color: var(--color-stone-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utilities */
+.text-shadow-lg {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-xl {
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.container {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}

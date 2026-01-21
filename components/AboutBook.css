@@ -1,0 +1,139 @@
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .book-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.book-description {
+  margin-bottom: 1.25rem;
+}
+
+.book-features {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .book-features {
+    font-size: 1.125rem;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+.book-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-icon {
+  color: var(--color-red);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .feature-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.book-cover-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.book-cover {
+  position: relative;
+  width: 14rem;
+  aspect-ratio: 2/3;
+  background-color: var(--color-red-dark);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: rotate(2deg);
+  transition: transform 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid rgba(254, 243, 199, 0.2); /* amber-100/20 */
+}
+
+@media (min-width: 768px) {
+  .book-cover {
+    width: 20rem;
+    transform: rotate(3deg);
+  }
+}
+
+.book-cover:hover {
+  transform: rotate(0);
+}
+
+.book-cover-content {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--color-amber-100);
+}
+
+@media (min-width: 768px) {
+  .book-cover-content {
+    padding: 2rem;
+  }
+}
+
+.book-title-main {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .book-title-main {
+    font-size: 3rem;
+  }
+}
+
+.book-title-sub {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .book-title-sub {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.book-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .book-subtitle {
+    font-size: 1.25rem;
+  }
+}

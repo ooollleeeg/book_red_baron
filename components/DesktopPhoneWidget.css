@@ -1,0 +1,35 @@
+.phone-widget-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 67px;
+}
+
+.phone-animated-bar {
+  position: absolute;
+  transition: all 0.3s ease-out;
+  border: 1px solid #fff1da;
+  background-color: #fff1da;
+  width: 31px;
+  height: 0;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.phone-widget-container:hover .phone-animated-bar {
+  transform: rotate(0deg);
+  top: 65%;
+  left: 0;
+  width: 100%;
+}
+
+.phone-link {
+  font-family: "Scheherazade New", serif;
+  font-size: 16px;
+  color: white;
+  text-align: right;
+  margin-left: 1rem;
+  position: relative;
+  z-index: 10;
+}
