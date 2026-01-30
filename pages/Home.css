@@ -1,87 +1,284 @@
-.section-about-book {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  background-color: #EAE0D5;
+/* Hero Section */
+.hero-container {
   position: relative;
-}
-
-.section-planes {
-  min-height: 100vh;
+  height: 800px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  position: relative;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+  background-color: #1a1a1a;
 }
 
-.planes-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(18, 18, 17, 0.3);
-}
-
-.section-biography {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  background-color: #C6AC8F;
-}
-
-@media (min-width: 768px) {
-  .section-biography {
-    padding: 2rem;
+@media (min-width: 1280px) {
+  .hero-container {
+    height: 900px;
   }
 }
 
-.section-buy-now {
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content-wrapper {
   position: relative;
   width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.hero-glass-bar {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-title {
+  font-family: "Staatliches", sans-serif;
+  text-transform: uppercase;
+  color: var(--brand-red);
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  line-height: 1.13;
+}
+
+.hero-subtitle {
+  font-family: "Scheherazade New", serif;
+  color: var(--brand-gold);
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.49));
+  line-height: 0.94;
+}
+
+.hero-desc {
+  font-family: "Staatliches", sans-serif;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+}
+
+/* Mobile Hero */
+.mobile-hero .hero-glass-bar {
+  left: 18px;
+  top: 37px;
+  width: 372px;
+  height: 49px;
+}
+.mobile-hero .hero-title {
+  left: 25px;
+  top: 20px;
+  font-size: 28px;
+  max-width: 95%;
+}
+.mobile-hero .hero-desc {
+  left: 25px;
+  top: 120px;
+  width: 300px;
+  font-size: 13px;
+}
+
+/* Tablet Hero */
+.tablet-hero .hero-glass-bar {
+  left: 50px;
+  top: 90px;
+  width: 500px;
+  height: 80px;
+}
+.tablet-hero .hero-title {
+  left: 80px;
+  top: 65px;
+  font-size: 48px;
+}
+.tablet-hero .hero-subtitle {
+  left: 150px;
+  top: 180px;
+  width: 400px;
+  font-size: 24px;
+}
+.tablet-hero .hero-desc {
+  left: 80px;
+  top: 350px;
+  width: 400px;
+  font-size: 24px;
+}
+
+/* Desktop Hero */
+.desktop-hero .hero-glass-bar {
+  left: 99px;
+  top: 156px;
+  width: 820px;
+  height: 121px;
+}
+.desktop-hero .hero-title {
+  left: 150px;
+  top: 117px;
+  font-size: 64px;
+}
+.desktop-hero .hero-subtitle {
+  left: 384px;
+  top: 238px;
+  width: 551px;
+  font-size: 32px;
+}
+.desktop-hero .hero-desc {
+  left: 1300px;
+  top: 497px;
+  width: 495px;
+  font-size: 32px;
+  text-align: right;
+}
+
+/* Section Common Headers */
+.section-header-group {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: "Staatliches", sans-serif;
+  color: var(--brand-red);
+  line-height: 0.8;
+  text-align: center;
+}
+
+.header-line-side {
+  position: absolute;
+  border-top: 2px solid var(--brand-red);
+  transition: transform 0.5s ease-out;
+  z-index: 10;
+  top: 100%;
+  margin-top: 2px;
+}
+
+.header-line-main {
+  position: absolute;
+  border-top: 2px solid var(--brand-red);
+  transition: transform 0.5s ease-out;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  margin-top: 2px;
+}
+
+/* About Book Section */
+.section-about-book {
+  background-color: #EAE0D5;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.book-content-grid {
+  position: relative;
+  width: 100%;
+  height: 1100px;
+}
+
+@media (min-width: 1280px) {
+  .book-content-grid {
+    height: 800px;
+  }
+}
+
+.book-image-frame {
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  width: 494px;
+  height: 353px;
+  max-width: 100%;
+}
+
+.book-text-block {
+  font-family: "Inter", sans-serif;
+  color: #181811;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.book-decorative-lines {
+  position: absolute;
+  border-top: 2px solid rgba(193, 38, 44, 0.3);
+  pointer-events: none;
+}
+
+/* Planes Section */
+.plane-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
-  padding-bottom: 42px;
-  overflow: hidden;
-}
-
-.buy-now-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-
-.buy-now-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(18, 18, 17, 0.7);
-  backdrop-filter: blur(2px);
-}
-
-.payment-strip {
-  width: 100%;
-  height: 104px;
-  background-color: #181811;
-  margin-top: 42px;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+  gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .payment-strip {
-    gap: 59px;
+  .plane-card {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
   }
+}
+
+.plane-image {
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.plane-info-box {
+  padding: 1.5rem;
+  width: 320px;
+}
+
+@media (min-width: 768px) {
+  .plane-info-box {
+    width: 454px;
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .plane-info-box {
+    width: 756px;
+  }
+}
+
+/* Biography Section */
+.bio-portrait {
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Buy Section Cards */
+.buy-card {
+  width: 241px;
+  min-height: 420px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .buy-card {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .buy-card {
+    width: 300px;
+  }
+}
+
+.payment-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-shadow {
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
 }

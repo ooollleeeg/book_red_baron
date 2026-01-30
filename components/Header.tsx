@@ -11,38 +11,28 @@ const Header: React.FC = () => {
   return (
     <header className="header-container">
       <div className="header-content">
-        
         <div className="header-logo-group">
-            <a href="#">
-                <Logo />
-            </a>
-            
-            <div className="flex flex-col justify-center leading-none">
-                <span className="font-tektur font-normal text-[16px] text-white">Fermory</span>
-                <span className="font-tektur font-normal text-[16px] text-white">Book</span>
+            <a href="#"><Logo /></a>
+            <div className="logo-text-group">
+                <span className="logo-text-main">Fermory</span>
+                <span className="logo-text-sub">Book</span>
             </div>
         </div>
 
-        <div className="hidden xl:flex w-full h-full items-center justify-end pr-10">
-          
-            <div className="absolute left-[271px] top-1/2 -translate-y-1/2">
+        <nav className="header-nav-desktop hidden xl:flex">
+            <div className="header-phone-pos">
                <DesktopPhoneWidget />
             </div>
-
-            <nav className="header-nav">
+            <div className="header-nav-links">
                 {NAV_ITEMS_DESKTOP.map((item) => (
-                <a 
-                    key={item.id} 
-                    href={`#${item.id}`}
-                    className="nav-link"
-                >
+                <a key={item.id} href={`#${item.id}`} className="nav-link">
                     {item.label}
                 </a>
                 ))}
-            </nav>
-        </div>
+            </div>
+        </nav>
 
-        <div className="xl:hidden absolute right-[25px] top-1/2 -translate-y-1/2">
+        <div className="xl:hidden burger-pos">
           <BurgerIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
         </div>
       </div>

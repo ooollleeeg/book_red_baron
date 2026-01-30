@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMAGE_URLS } from '../assets/images/urls';
+import { IMAGE_URLS } from '../assets/images/urls.ts';
 
 export const ImageSprite: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ export const ImageSprite: React.FC = () => {
           preserveAspectRatio='none'
         >
           <image
-            href={IMAGE_URLS.RED_BARON}
+            href={IMAGE_URLS.RED_BARON_PORTRAIT}
             width='100%'
             height='100%'
             preserveAspectRatio='xMidYMid slice'
@@ -33,7 +33,7 @@ export const ImageSprite: React.FC = () => {
           preserveAspectRatio='none'
         >
           <image
-            href={IMAGE_URLS.ALBATROS}
+            href={IMAGE_URLS.ALBATROS_DII}
             width='100%'
             height='100%'
             preserveAspectRatio='xMidYMid slice'
@@ -46,7 +46,7 @@ export const ImageSprite: React.FC = () => {
           preserveAspectRatio='none'
         >
           <image
-            href={IMAGE_URLS.FOKKER}
+            href={IMAGE_URLS.FOKKER_DRI}
             width='100%'
             height='100%'
             preserveAspectRatio='xMidYMid slice'

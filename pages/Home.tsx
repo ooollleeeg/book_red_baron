@@ -13,7 +13,7 @@ const IconTheReadersCombined: React.FC = () => (
     viewBox="0 0 55 59" 
     fill="none" 
     xmlns="http://www.w3.org/2000/svg"
-    style={{ boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25)' }}
+    className="payment-shadow"
   >
     <g filter="url(#filter0_d_145_191)">
       <path opacity="0.54" d="M27.1311 33.9408L7.85522 28.0358V5.54565L27.1311 11.4469V33.9408Z" fill="white" />
@@ -44,7 +44,7 @@ const IconPayment2New: React.FC = () => (
     viewBox="0 0 47 58" 
     fill="none" 
     xmlns="http://www.w3.org/2000/svg"
-    style={{ boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25)' }}
+    className="payment-shadow"
   >
     <path style={{ mixBlendMode: 'multiply' }} d="M23.0411 0.656147C22.1467 -0.218716 20.6928 -0.218716 19.7985 0.656147C18.9041 1.53101 18.9041 2.95318 19.7985 3.82804L23.0411 6.99994V16.6276L38.2919 31.5459V15.5744L23.0411 0.656147Z" fill="#737373" />
     <path d="M22.8208 1.86269C21.9265 0.987827 20.4726 0.987827 19.5782 1.86269C18.6838 2.73755 19.6503 3.68705 20.5446 4.56192L22.8208 6.6309V17.8383L37.3087 32.0102V16.0388L22.8208 1.86684V1.86269Z" fill="white" />
@@ -100,187 +100,148 @@ const IconBookFormat3: React.FC = () => (
   </svg>
 );
 
-
-// Mobile Arrow SVG
 const ArrowIconMobile: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} width="53" height="24" viewBox="0 0 53 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M2 9.547C0.895431 9.547 9.65645e-08 10.4424 0 11.547C-9.65645e-08 12.6516 0.89543 13.547 2 13.547L2 9.547ZM53 11.547L33 -5.87296e-06L33 23.094L53 11.547ZM2 13.547L35 13.547L35 9.547L2 9.547L2 13.547Z" fill="#C1262C" />
   </svg>
 );
 
-// Desktop Arrow SVG
 const ArrowIconDesktop: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} width="57" height="24" viewBox="0 0 57 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M2 9.547C0.89543 9.547 0 10.4424 0 11.547C0 12.6516 0.89543 13.547 2 13.547V9.547ZM57 11.547L37 -8.58307e-06V23.094L57 11.547ZM2 13.547H39V9.547H2V13.547Z" fill="#C1262C" />
   </svg>
 );
 
+const SectionHeader: React.FC<{ title: string; sideLineClass?: string; mainLineWidth?: string; sideLineWidth?: string }> = ({ 
+  title, sideLineClass = "origin-[25%_50%] left-[-10px]", mainLineWidth = "168px", sideLineWidth = "28px" 
+}) => (
+  <div className="section-header-group group">
+    <h2 className="section-title text-[32px] md:text-[48px] xl:text-[64px]">
+      {title}
+    </h2>
+    <div 
+      className={`header-line-side ${sideLineClass} -rotate-90 group-hover:rotate-0`} 
+      style={{ width: sideLineWidth }} 
+    />
+    <div 
+      className="header-line-main group-hover:rotate-180" 
+      style={{ width: mainLineWidth }} 
+    />
+  </div>
+);
 
 const Home: React.FC = () => {
-
-  const BookHeader = () => (
-    <div className="relative inline-block group mb-8 xl:mb-0">
-      <h2 className="font-staatliches font-normal text-[#c1262c] text-[32px] md:text-[48px] xl:text-[64px] leading-[0.8] text-center">
-        About book
-      </h2>
-      <div className="absolute border-t-[2px] border-[#c1262c] h-[0px] transition-transform duration-500 ease-out z-10 top-full mt-[2px] origin-[25%_50%] left-[-10px] md:left-[-13.75px] xl:left-[-17.5px] -rotate-90 group-hover:rotate-0 w-[28px] md:w-[43px] xl:w-[58px]" />
-      <div className="absolute border-t-[2px] border-[#c1262c] h-[0px] transition-transform duration-500 ease-out left-1/2 -translate-x-1/2 top-full mt-[2px] rotate-0 group-hover:rotate-180 w-[168px] md:w-[278px] xl:w-[387px]" />
-    </div>
-  );
-
-  const BookImage = () => (
-    <div 
-      className="bg-cover bg-center shadow-xl w-[494px] h-[353px] md:w-[400px] md:h-[286px] xl:w-[494px] xl:h-[353px] max-w-full"
-      style={{ backgroundImage: `url('${IMAGES.ABOUT_BOOK_BG}')` }}
-    />
-  );
-
-  const BookText1 = () => (
-    <div className="w-[288px] md:w-[330px] xl:w-[461px] max-w-full relative">
-      <div className="absolute top-[-7px] -left-[33px] w-[66px] h-[0px] border-t-[2px] border-[#c1262c]/30 pointer-events-none" />
-      <div className="absolute top-[-24px] -left-[16px] w-[47px] h-[0px] border-t-[2px] border-[#c1262c]/30 origin-top-left rotate-90 pointer-events-none" />
-      <div className="absolute top-[34px] -left-[16px] w-[111px] h-[0px] border-t-[2px] border-[#c1262c]/30 origin-top-left rotate-90 pointer-events-none" />
-      <p className="font-inter font-normal text-[14px] xl:text-[16px] xl:font-normal text-justify text-[#181811] leading-relaxed">
-        "Iron Birds" is a detailed and gripping account of the life and military career of Manfred von Richthofen, known to the world as the Red Baron. The book is not just a biography, but an in-depth study of World War I aviation, with special attention to the aircraft flown by the legendary ace.
-      </p>
-    </div>
-  );
-
-  const BookSub1 = () => (
-    <h3 className="w-[288px] md:w-[330px] xl:w-[461px] max-w-full font-staatliches font-normal text-[24px] xl:text-[20px] text-justify xl:text-justify text-[#4a181b]">
-      Who will find this book interesting?
-    </h3>
-  );
-
-  const BookText2 = () => (
-    <div className="w-[288px] md:w-[330px] xl:w-[461px] max-w-full">
-      <p className="font-inter font-normal text-[14px] xl:text-[16px] text-justify text-[#121211] leading-relaxed">
-        This book is ideal for fans of military history, aviation and biographies of great personalities. It will be useful for those interested in air combat tactics, the evolution of aviation and the fates of outstanding aces of the First World War.
-      </p>
-    </div>
-  );
-
-  const BookSub2 = () => (
-    <h3 className="w-[288px] md:w-[330px] xl:w-[461px] max-w-full font-staatliches font-normal text-[24px] xl:text-[20px] tracking-tight xl:tracking-normal text-justify md:text-right xl:text-right text-[#4a181b]">
-      The Red Baron's Story - A Legend in the Sky
-    </h3>
-  );
-
-  const BookText3 = () => (
-    <div className="w-[288px] md:w-[330px] xl:w-[577px] max-w-full relative">
-      <p className="font-inter font-normal text-[16px] xl:text-[16px] text-justify text-[#1e1e1e] leading-relaxed" style={{ textShadow: '0 2px 6px 0 rgba(255, 255, 255, 0.63)' }}>
-        "Manfred von Richthofen, known to the world as the Red Baron, was the greatest ace of World War I, with 80 aerial victories. His name became synonymous with skill, strategy and courage in the sky, and his bright red fighter struck fear into his enemies. This book is not just a biography. It is a journey into the world of aerial combat, revealing the secrets of tactics, describing legendary aircraft and tracing the path of the Red Baron - from a young cavalryman to the terror of the sky."
-      </p>
-       <div className="absolute -bottom-[7px] -right-[33px] w-[66px] h-[0px] border-t-[2px] border-[#c1262c]/30 pointer-events-none" />
-       <div className="absolute -bottom-[24px] -right-[16px] w-[47px] h-[0px] border-t-[2px] border-[#c1262c]/30 origin-bottom-right rotate-90 pointer-events-none" />
-       <div className="absolute bottom-[34px] -right-[16px] w-[111px] h-[0px] border-t-[2px] border-[#c1262c]/30 origin-bottom-right rotate-90 pointer-events-none" />
-    </div>
-  );
-
-  const BookButton = () => (
-    <RivetedButton 
-      text="more of our books" 
-      href="https://de.wikipedia.org/wiki/Manfred_von_Richthofen"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-8 md:mt-0 xl:mt-0 w-[273px] h-[38px] md:w-[199px] md:h-[34px] xl:w-[199px] xl:h-[34px] !bg-[#c1262c] md:!bg-transparent xl:!bg-transparent md:border md:border-[#c1262c] xl:border xl:border-[#c1262c] text-[24px] md:text-[16px] xl:text-[16px] text-[#fff1da] md:text-[#ff6767] xl:text-[#ff6767]"
-      noRivets={true}
-      noMinuses={true}
-    />
-  );
-
   return (
     <main className="flex-grow w-full bg-[#FAF7F2]">
         {/* HERO SECTION */}
-        <div className="relative h-[800px] xl:h-[900px] w-full overflow-hidden">
-            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${IMAGES.HERO_BG}')` }} />
-
-            {/* MOBILE VERSION */}
-            <div className="block md:hidden w-full h-full relative">
-                <div className="absolute left-[18px] top-[37px] w-[372px] h-[49px] bg-white/3 backdrop-blur-[25px] glass-effect" />
-                <h1 className="absolute left-[25px] top-[20px] max-w-[95%] font-staatliches font-normal text-[28px] leading-[113%] uppercase text-[#c1262c] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-                    Red Baron: The Legend That<br />Conquered the Skies
-                </h1>
-                <p className="absolute left-[25px] top-[120px] w-[300px] font-staatliches font-normal text-[13px] uppercase text-brand-gold">
-                    Analysis of the techniques and tactics of air combat from the best pilot of the First World War.
-                </p>
-                <RivetedButton 
-                  text="Buy the book" 
-                  href="https://zalizniytato.org.ua/"
-                  className="absolute left-1/2 -translate-x-1/2 top-[220px] text-[24px] text-white border border-[#c1262c] shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-                  style={{ width: '253px', height: '53px', backgroundColor: 'rgba(193, 38, 44, 0.27)' }}
-                />
-            </div>
-
-            {/* TABLET VERSION */}
-            <div className="hidden md:block xl:hidden w-full h-full relative">
-                <div className="absolute left-[50px] top-[90px] w-[500px] h-[80px] bg-white/3 backdrop-blur-[25px] glass-effect" />
-                <h1 className="absolute left-[80px] top-[65px] font-staatliches font-normal text-[48px] uppercase text-[#c1262c] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-                    Red Baron:<br />The Legend That<br />Conquered the Skies
-                </h1>
-                <p className="absolute left-[150px] top-[180px] w-[400px] font-scheherazade font-normal text-[24px] leading-[94%] text-brand-gold drop-shadow-[0_4px_4px_rgba(0,0,0,0.49)]">
-                    The story of the greatest ace of the First World War and his legendary planes.
-                </p>
-                <p className="absolute left-[80px] top-[350px] w-[400px] font-staatliches font-normal text-[24px] text-left uppercase text-brand-gold">
-                    Analysis of the techniques and tactics of air combat from the best pilot of the First World War.
-                </p>
-                <RivetedButton 
-                  text="Buy the book" 
-                  href="https://zalizniytato.org.ua/"
-                  className="absolute left-[80px] top-[450px] text-[20px] text-white border border-[#c1262c] shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-                  style={{ width: '219px', height: '46px', backgroundColor: 'rgba(193, 38, 44, 0.27)' }}
-                />
-            </div>
-
-            {/* DESKTOP VERSION */}
-            <div className="hidden xl:block w-full h-full relative max-w-[1920px] mx-auto">
-                 <div className="absolute left-[99px] top-[156px] w-[820px] h-[121px] bg-white/3 backdrop-blur-[25px] glass-effect" />
-                <h1 className="absolute left-[150px] top-[117px] font-staatliches font-normal text-[64px] uppercase text-[#c1262c] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] leading-tight">
+        <div className="hero-container desktop-hero hidden xl:block">
+            <div className="hero-bg" style={{ backgroundImage: `url('${IMAGES.HERO_BG}')` }} />
+            <div className="hero-content-wrapper">
+                <div className="hero-glass-bar" />
+                <h1 className="hero-title absolute">
                     Red Baron: The Legend That Conquered<br />the Skies
                 </h1>
-                <p className="absolute left-[384px] top-[238px] w-[551px] font-scheherazade font-normal text-[32px] leading-[94%] text-brand-gold drop-shadow-[0_4px_4px_rgba(0,0,0,0.49)]">
+                <p className="hero-subtitle absolute">
                     The story of the greatest ace of the First World War and his legendary planes.
                 </p>
-                <p className="absolute left-[1300px] top-[497px] w-[495px] font-staatliches font-normal text-[32px] text-right uppercase text-brand-gold leading-tight">
+                <p className="hero-desc absolute">
                     Analysis of the techniques and tactics of air combat from the best pilot of the First World War.
                 </p>
                 <RivetedButton 
                   text="Buy the book" 
-                  href="https://zalizniytato.org.ua/"
-                  className="absolute left-[150px] top-[603px] text-[20px] text-white border border-[#c1262c] shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                  href={`#${SectionId.BUY_NOW}`}
+                  className="absolute left-[150px] top-[603px] text-[20px] text-white border border-[#c1262c]"
                   style={{ width: '219px', height: '46px', backgroundColor: 'rgba(193, 38, 44, 0.27)' }}
+                />
+            </div>
+        </div>
+
+        {/* HERO TABLET */}
+        <div className="hero-container tablet-hero hidden md:block xl:hidden">
+            <div className="hero-bg" style={{ backgroundImage: `url('${IMAGES.HERO_BG}')` }} />
+            <div className="hero-content-wrapper">
+                <div className="hero-glass-bar" />
+                <h1 className="hero-title absolute">
+                    Red Baron:<br />The Legend That<br />Conquered the Skies
+                </h1>
+                <p className="hero-subtitle absolute">
+                    The story of the greatest ace of the First World War and his legendary planes.
+                </p>
+                <p className="hero-desc absolute">
+                    Analysis of the techniques and tactics of air combat from the best pilot of the First World War.
+                </p>
+                <RivetedButton 
+                  text="Buy the book" 
+                  href={`#${SectionId.BUY_NOW}`}
+                  className="absolute left-[80px] top-[450px] text-[20px] text-white border border-[#c1262c]"
+                  style={{ width: '219px', height: '46px', backgroundColor: 'rgba(193, 38, 44, 0.27)' }}
+                />
+            </div>
+        </div>
+
+        {/* HERO MOBILE */}
+        <div className="hero-container mobile-hero md:hidden">
+            <div className="hero-bg" style={{ backgroundImage: `url('${IMAGES.HERO_BG}')` }} />
+            <div className="hero-content-wrapper">
+                <div className="hero-glass-bar" />
+                <h1 className="hero-title absolute">
+                    Red Baron: The Legend That<br />Conquered the Skies
+                </h1>
+                <p className="hero-desc absolute">
+                    Analysis of the techniques and tactics of air combat from the best pilot of the First World War.
+                </p>
+                <RivetedButton 
+                  text="Buy the book" 
+                  href={`#${SectionId.BUY_NOW}`}
+                  className="absolute left-1/2 -translate-x-1/2 top-[220px] text-[24px] text-white border border-[#c1262c]"
+                  style={{ width: '253px', height: '53px', backgroundColor: 'rgba(193, 38, 44, 0.27)' }}
                 />
             </div>
         </div>
 
         {/* ABOUT BOOK */}
         <section id={SectionId.ABOUT_BOOK} className="section-about-book">
-            <div className="max-w-[1920px] w-full relative flex flex-col items-center">
-                <div className="mt-8 xl:mt-12 mb-8 md:mb-4 xl:mb-12">
-                   <BookHeader />
+            <div className="max-w-[1920px] mx-auto flex flex-col items-center">
+                <div className="mt-8 mb-12">
+                   <SectionHeader title="About book" sideLineWidth="58px" mainLineWidth="387px" />
                 </div>
-                <div className="md:hidden flex flex-col items-center gap-6">
-                    <BookImage />
-                    <BookText1 />
-                    <BookSub1 />
-                    <BookText2 />
-                    <BookSub2 />
-                    <BookText3 />
-                    <BookButton />
-                </div>
-                <div className="hidden md:block w-full h-[1100px] xl:h-[800px] relative">
-                    <div className="absolute left-1/2 -translate-x-1/2 md:top-[160px] xl:top-[154px]">
-                       <BookImage />
+                
+                <div className="book-content-grid">
+                    <div className="absolute left-1/2 -translate-x-1/2 top-[154px]">
+                       <div className="book-image-frame" style={{ backgroundImage: `url('${IMAGES.ABOUT_BOOK_BG}')` }} />
                     </div>
-                    <div className="absolute left-[68px] md:left-[34px] xl:left-[68px] top-0 flex flex-col gap-6 items-start">
-                        <BookText1 />
-                        <BookSub1 />
-                        <BookText2 />
-                        <BookButton />
+                    
+                    <div className="absolute left-[68px] top-0 flex flex-col gap-6">
+                        <div className="w-[461px] relative">
+                            <div className="book-decorative-lines top-[-7px] -left-[33px] w-[66px]" />
+                            <div className="book-decorative-lines top-[-24px] -left-[16px] w-[47px] rotate-90" />
+                            <div className="book-decorative-lines top-[34px] -left-[16px] w-[111px] rotate-90" />
+                            <p className="book-text-block text-[16px]">
+                                "Iron Birds" is a detailed and gripping account of the life and military career of Manfred von Richthofen, known to the world as the Red Baron.
+                            </p>
+                        </div>
+                        <h3 className="font-staatliches text-[20px] text-[#4a181b]">Who will find this book interesting?</h3>
+                        <p className="book-text-block w-[461px] text-[16px]">
+                            Ideal for fans of military history, aviation and biographies of great personalities.
+                        </p>
+                        <RivetedButton 
+                          text="more of our books" 
+                          href="https://zalizniytato.org.ua/"
+                          className="w-[199px] h-[34px] !bg-transparent border border-[#c1262c] text-[#ff6767]"
+                          noRivets noMinuses
+                        />
                     </div>
-                    <div className="absolute right-[68px] md:right-[34px] xl:right-[68px] md:top-[380px] xl:top-auto xl:bottom-[100px] flex flex-col gap-6 items-end">
-                        <BookSub2 />
-                        <BookText3 />
+
+                    <div className="absolute right-[68px] bottom-[100px] flex flex-col gap-6 items-end">
+                        <h3 className="font-staatliches text-[20px] text-[#4a181b] text-right">The Red Baron's Story - A Legend in the Sky</h3>
+                        <div className="w-[577px] relative">
+                            <p className="book-text-block text-[16px] text-justify" style={{ textShadow: '0 2px 6px white' }}>
+                                Manfred von Richthofen was the greatest ace of World War I, with 80 aerial victories. His name became synonymous with skill, strategy and courage.
+                            </p>
+                            <div className="book-decorative-lines -bottom-[7px] -right-[33px] w-[66px]" />
+                            <div className="book-decorative-lines -bottom-[24px] -right-[16px] w-[47px] rotate-90" />
+                            <div className="book-decorative-lines bottom-[34px] -right-[16px] w-[111px] rotate-90" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -289,98 +250,31 @@ const Home: React.FC = () => {
         {/* PLANES SECTION */}
         <section id={SectionId.ABOUT_PLANES} className="section-planes" style={{ backgroundImage: `url('${IMAGES.PLANES_BG}')` }}>
              <div className="planes-overlay" />
-            <div className="max-w-[1920px] w-full relative z-10 flex flex-col items-center">
-                <div className="relative inline-block group mb-12 xl:mb-20">
-                    <h2 className="font-staatliches font-normal text-[#c1262c] text-[32px] md:text-[48px] xl:text-[64px] leading-[0.8] text-center">Richthofen's planes</h2>
-                    <div className="absolute border-t-[2px] border-[#c1262c] h-[0px] transition-transform duration-500 ease-out z-10 top-full mt-[2px] origin-[75%_50%] right-[-10px] md:right-[-13.75px] xl:right-[-17.5px] rotate-90 group-hover:rotate-0 w-[28px] md:w-[43px] xl:w-[58px]" />
-                    <div className="absolute border-t-[2px] border-[#c1262c] h-[0px] transition-transform duration-500 ease-out left-1/2 -translate-x-1/2 top-full mt-[2px] rotate-0 group-hover:rotate-180 w-[320px] md:w-[530px] xl:w-[735px]" />
+             <div className="max-w-[1920px] mx-auto relative z-10 flex flex-col items-center">
+                <div className="mb-20">
+                    <SectionHeader title="Richthofen's planes" sideLineClass="origin-[75%_50%] right-[-17.5px]" sideLineWidth="58px" mainLineWidth="735px" />
                 </div>
-                <div className="w-full flex flex-col gap-12 xl:gap-20">
-                    <div className="flex flex-col md:flex-row xl:flex-row items-center justify-center gap-6 md:gap-10 xl:gap-20">
-                        <div className="bg-cover bg-center shadow-lg w-[293px] h-[191px] md:w-[382px] md:h-[255px] xl:w-[637px] xl:h-[425px]" style={{ backgroundImage: `url('${IMAGES.ALBATROS_DII}')`, transform: 'rotate(15deg)' }} />
-                        <div className="flex flex-col gap-4 p-6 xl:p-10 w-[320px] md:w-[454px] xl:w-[756px] glass-effect">
-                            <h3 className="font-staatliches font-normal text-[20px] xl:text-[32px] md:text-right text-justify text-[#c1262c]">Albatros D.II</h3>
-                            <p className="font-inter font-normal text-[14px] xl:text-[15px] text-justify text-brand-gold leading-relaxed">
-                                The Albatros D.II was a single-seat wooden biplane. The fuselage consisted of four spruce spars connected by 14 plywood frames. The frame was covered with three-layer plywood sheets of working skin bent in pairs. Removable aluminum sheets in front and aerodynamic spinner ensured smooth contours.
+                
+                <div className="flex flex-col gap-20 w-full">
+                    {/* Plane 1 */}
+                    <div className="plane-card">
+                        <div className="plane-image w-[637px] h-[425px]" style={{ backgroundImage: `url('${IMAGES.ALBATROS_DII}')`, transform: 'rotate(15deg)' }} />
+                        <div className="plane-info-box glass-effect">
+                            <h3 className="font-staatliches text-[32px] text-[#c1262c] text-right">Albatros D.II</h3>
+                            <p className="font-inter text-[15px] text-justify text-brand-gold leading-relaxed">
+                                The Albatros D.II was a single-seat wooden biplane. The fuselage consisted of four spruce spars connected by 14 plywood frames.
                             </p>
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row-reverse xl:flex-row-reverse items-center justify-center gap-6 md:gap-10 xl:gap-20">
-                         <div className="bg-cover bg-center shadow-lg w-[270px] h-[180px] md:w-[382px] md:h-[255px] xl:w-[637px] xl:h-[425px]" style={{ backgroundImage: `url('${IMAGES.ALBATROS_DIII}')`, transform: 'rotate(-10deg)' }} />
-                         <div className="flex flex-col gap-4 p-6 xl:p-10 w-[320px] md:w-[454px] xl:w-[756px] glass-effect">
-                            <h3 className="font-staatliches font-normal text-[20px] xl:text-[32px] md:text-left text-justify text-[#c1262c]">Albatros D.III</h3>
-                            <p className="font-inter font-normal text-[14px] xl:text-[15px] text-justify text-brand-gold leading-relaxed">
-                                Built with a gearless Jupiter VI engine, it featured a shorter, more angular fuselage. The design improvements made it a direct predecessor to the serial Ar 64 fighter, significantly impacting WWI aviation technology.
+                    {/* Plane 2 */}
+                    <div className="plane-card md:flex-row-reverse">
+                        <div className="plane-image w-[637px] h-[425px]" style={{ backgroundImage: `url('${IMAGES.ALBATROS_DIII}')`, transform: 'rotate(-10deg)' }} />
+                        <div className="plane-info-box glass-effect">
+                            <h3 className="font-staatliches text-[32px] text-[#c1262c] text-left">Albatros D.III</h3>
+                            <p className="font-inter text-[15px] text-justify text-brand-gold leading-relaxed">
+                                Built with a gearless Jupiter VI engine, it featured a shorter, more angular fuselage.
                             </p>
                         </div>
-                    </div>
-                    <div className="flex flex-col md:flex-row xl:flex-row items-center justify-center gap-6 md:gap-10 xl:gap-20">
-                         <div className="bg-cover bg-center shadow-lg w-[295px] h-[183px] md:w-[382px] md:h-[255px] xl:w-[637px] xl:h-[425px]" style={{ backgroundImage: `url('${IMAGES.FOKKER_DRI}')`, transform: 'rotate(7deg)' }} />
-                         <div className="flex flex-col gap-4 p-6 xl:p-10 w-[320px] md:w-[454px] xl:w-[756px] glass-effect">
-                            <h3 className="font-staatliches font-normal text-[20px] xl:text-[32px] md:text-right text-justify text-[#c1262c]">Fokker Dr.I</h3>
-                            <p className="font-inter font-normal text-[14px] xl:text-[15px] text-justify text-brand-gold leading-relaxed">
-                                Equipped with a 9-cylinder rotary engine, this legendary triplane featured two synchronized 7.92 mm "Spandau" machine guns. It remains the most iconic plane associated with the Red Baron's victories.
-                            </p>
-                            <div className="hidden md:flex justify-end mt-auto">
-                                <a href="https://en.wikipedia.org/wiki/Aviation_in_World_War_I" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-4 bg-[#fff1da] hover:bg-white transition-colors w-[280px] h-[39px]">
-                                    <span className="font-staatliches font-normal text-[24px] text-[#c1262c]">more about airplanes</span>
-                                    <ArrowIconDesktop />
-                                </a>
-                            </div>
-                        </div>
-                        <div className="flex md:hidden w-[320px] justify-start">
-                            <a href="https://en.wikipedia.org/wiki/Aviation_in_World_War_I" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#fff1da] hover:bg-white transition-colors w-[238px] h-[33px]">
-                                <span className="font-staatliches font-normal text-[20px] text-[#c1262c]">more about airplanes</span>
-                                <ArrowIconMobile />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {/* BIOGRAPHY SECTION */}
-        <section id={SectionId.ABOUT_RED_BARON} className="section-biography">
-            <div className="max-w-[1920px] w-full flex flex-col items-center">
-                <div className="relative inline-block group mb-8 md:mb-12">
-                    <h2 className="font-staatliches font-normal text-[#c1262c] text-[26px] md:text-[48px] xl:text-[64px] leading-[0.8] text-center whitespace-nowrap">Biography of the Red Baron</h2>
-                    <div className="absolute border-t-[2px] border-[#c1262c] h-[0px] transition-transform duration-500 ease-out z-10 top-full mt-[2px] origin-[25%_50%] left-[-10px] md:left-[-13.75px] xl:left-[-17.5px] -rotate-90 group-hover:rotate-0 w-[28px] md:w-[43px] xl:w-[58px]" />
-                    <div className="absolute border-t-[2px] border-[#c1262c] h-[0px] transition-transform duration-500 ease-out left-1/2 -translate-x-1/2 top-full mt-[2px] rotate-0 group-hover:rotate-180 w-[340px] md:w-[722px] xl:w-[1006px]" />
-                </div>
-                <div className="flex flex-col items-center md:hidden w-full">
-                    <div className="mt-[10px] w-[269px] h-[387px] bg-cover bg-center shadow-lg" style={{ backgroundImage: `url('${IMAGES.RED_BARON_PORTRAIT}')` }} />
-                    <div className="mt-4 w-[320px] p-6 glass-effect">
-                        <p className="text-justify font-inter font-normal text-[13px] text-[#fff1da]" style={{ textShadow: '-2px 3px 4px 0 rgba(0, 0, 0, 0.51)' }}>
-                             Rittmeister Freiherr Manfred von Richthofen is undoubtedly still the world's most famous fighter pilot today. Born in 1892, he became the greatest ace of WWI. Known as "The Red Baron," a translation of his title by British enemies, he titled his own autobiography "The Red Fighter."
-                        </p>
-                    </div>
-                    <div className="mt-4 w-[328px] h-[218px] bg-cover bg-center" style={{ backgroundImage: `url('${IMAGES.RED_BARON_PHOTO_2}')`, boxShadow: '-10px 12px 10px 0 rgba(0, 0, 0, 0.44)' }} />
-                    <div className="mt-4 w-[320px] text-justify font-inter font-normal text-[13px] text-[#fff1da]" style={{ textShadow: '-2px 3px 4px 0 rgba(0, 0, 0, 0.51)' }}>
-                         Quickly achieving aerial victories in Jagdstaffel 2, he became the most feared pilot. With sixteen recognized kills, he was awarded the "Pour le Mérite" order on January 12, 1917.
-                    </div>
-                    <div className="w-full flex justify-end mt-[10px]">
-                        <RivetedButton text="read more" href="#" className="border border-[#c1262c] text-[16px] text-[#c1262c] !bg-[#fff1da] hover:!bg-white" style={{ width: '158px', height: '51px' }} />
-                    </div>
-                </div>
-                <div className="hidden md:flex flex-col gap-12 xl:gap-20 w-full mt-8">
-                    <div className="flex flex-row items-center justify-center gap-10 xl:gap-20">
-                        <div className="w-[382px] h-[500px] xl:w-[637px] xl:h-[682px] bg-cover bg-center shadow-xl" style={{ backgroundImage: `url('${IMAGES.RED_BARON_PORTRAIT}')` }} />
-                        <div className="relative flex flex-col gap-4 w-[454px] xl:w-[756px] p-6 xl:p-10 glass-effect">
-                            <p className="font-inter font-normal text-[16px] text-justify text-[#fff1da]" style={{ textShadow: '-2px 3px 4px 0 rgba(0, 0, 0, 0.51)' }}>
-                                Rittmeister Freiherr Manfred von Richthofen is undoubtedly still the world's most famous fighter pilot. Behind the propaganda figure stands an exceptionally capable young officer shaped by his era. Known today as "The Red Baron," his name became synonymous with skill, strategy and courage in the sky.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex flex-row items-center justify-center gap-10 xl:gap-20">
-                         <div className="relative flex flex-col gap-4 w-[454px] xl:w-[756px]">
-                            <p className="font-inter font-normal text-[16px] text-justify xl:text-right text-[#fff1da]" style={{ textShadow: '-2px 3px 4px 0 rgba(0, 0, 0, 0.51)' }}>
-                                 Transferring to fighter pilots in 1916, he quickly became the most successful German pilot. The Supreme Army Command exploited his fame for propaganda, making him a universally admired hero. He was finally awarded the "Pour le Mérite" order in early 1917.
-                            </p>
-                        </div>
-                         <div className="w-[382px] h-[255px] xl:w-[637px] xl:h-[425px] bg-cover bg-center shadow-xl" style={{ backgroundImage: `url('${IMAGES.RED_BARON_PHOTO_2}')`, boxShadow: '-10px 12px 10px 0 rgba(0, 0, 0, 0.44)' }} />
-                    </div>
-                    <div className="flex justify-center mt-12">
-                        <RivetedButton text="read more" href="#" className="border border-[#c1262c] text-[20px] text-[#c1262c] !bg-[#fff1da] hover:!bg-white" style={{ width: '200px', height: '50px' }} />
                     </div>
                 </div>
             </div>
@@ -388,70 +282,42 @@ const Home: React.FC = () => {
 
         {/* BUY SECTION */}
         <section id={SectionId.BUY_NOW} className="section-buy-now">
-             <div 
-               className="buy-now-bg" 
-               style={{ backgroundImage: `url('${IMAGES.PLANES_BG}')` }} 
-             >
+             <div className="buy-now-bg" style={{ backgroundImage: `url('${IMAGES.PLANES_BG}')` }}>
                 <div className="buy-now-overlay" />
              </div>
 
-             <h2 className="relative z-10 font-staatliches font-normal text-[#fff1da] text-[32px] md:text-[48px] xl:text-[64px] text-center">
+             <h2 className="relative z-10 font-staatliches text-brand-gold text-[64px] text-center mb-10">
                 Buy different book formats
              </h2>
              
-             <div className="relative z-10 w-full px-4 md:px-8 mt-[42px]">
-                <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-6 md:gap-4 xl:gap-8">
-                    
-                    {/* Card 1 */}
-                    <div className="w-[241px] md:w-full xl:w-[300px] min-h-[420px] md:min-h-[auto] p-6 flex flex-col items-center buy-card-effect">
+             <div className="relative z-10 w-full max-w-[1200px] px-8">
+                <div className="flex flex-col md:flex-row gap-8 justify-center">
+                    <div className="buy-card buy-card-effect">
                         <IconBookFormat1 />
-                        <h4 className="font-staatliches text-[20px] md:text-[18px] xl:text-[24px] text-brand-gold mt-4 text-center">Print Edition</h4>
-                        <p className="mt-4 font-inter text-[12px] md:text-[11px] xl:text-[14px] text-center text-white/80 leading-relaxed">
-                          Immerse yourself in aerial combat with a physical book. Perfect choice for collectors.
+                        <h4 className="font-staatliches text-[24px] text-brand-gold mt-4">Print Edition</h4>
+                        <p className="mt-4 font-inter text-[14px] text-center text-white/80 leading-relaxed">
+                          Immerse yourself in aerial combat with a physical book.
                         </p>
-                        <p className="mt-auto font-staatliches text-[32px] md:text-[28px] xl:text-[36px] text-brand-gold">15$</p>
+                        <p className="mt-auto font-staatliches text-[36px] text-brand-gold">15$</p>
                         <RivetedButton 
                           text="ORDER NOW" 
                           href="https://zalizniytato.org.ua/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 border border-[#c1262c] text-[#c1262c] !bg-[#fff1da] hover:!bg-white text-[16px] md:text-[14px] xl:text-[20px]"
+                          className="mt-4 border border-[#c1262c] text-[#c1262c] !bg-[#fff1da] hover:!bg-white"
                           style={{ width: '158px', height: '42px' }}
                         />
                     </div>
 
-                    {/* Card 2 */}
-                    <div className="w-[241px] md:w-full xl:w-[300px] min-h-[420px] md:min-h-[auto] p-6 flex flex-col items-center buy-card-effect">
+                    <div className="buy-card buy-card-effect">
                         <IconBookFormat2 />
-                        <h4 className="font-staatliches text-[20px] md:text-[18px] xl:text-[24px] text-brand-gold mt-4 text-center">Audio Book</h4>
-                        <p className="mt-4 font-inter text-[12px] md:text-[11px] xl:text-[14px] text-center text-white/80 leading-relaxed">
+                        <h4 className="font-staatliches text-[24px] text-brand-gold mt-4">Audio Book</h4>
+                        <p className="mt-4 font-inter text-[14px] text-center text-white/80 leading-relaxed">
                           Listen to the fascinating story performed by a professional announcer.
                         </p>
-                        <p className="mt-auto font-staatliches text-[32px] md:text-[28px] xl:text-[36px] text-brand-gold">9$</p>
+                        <p className="mt-auto font-staatliches text-[36px] text-brand-gold">9$</p>
                         <RivetedButton 
                           text="ORDER NOW" 
                           href="https://zalizniytato.org.ua/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 border border-[#c1262c] text-[#c1262c] !bg-[#fff1da] hover:!bg-white text-[16px] md:text-[14px] xl:text-[20px]"
-                          style={{ width: '158px', height: '42px' }}
-                        />
-                    </div>
-
-                    {/* Card 3 */}
-                    <div className="w-[241px] md:w-full xl:w-[300px] min-h-[420px] md:min-h-[auto] p-6 flex flex-col items-center buy-card-effect">
-                        <IconBookFormat3 />
-                        <h4 className="font-staatliches text-[20px] md:text-[18px] xl:text-[24px] text-brand-gold mt-4 text-center">Digital E-Book</h4>
-                        <p className="mt-4 font-inter text-[12px] md:text-[11px] xl:text-[14px] text-center text-white/80 leading-relaxed">
-                          Read anywhere. Electronic version available in convenient formats.
-                        </p>
-                        <p className="mt-auto font-staatliches text-[32px] md:text-[28px] xl:text-[36px] text-brand-gold">5$</p>
-                        <RivetedButton 
-                          text="ORDER NOW" 
-                          href="https://zalizniytato.org.ua/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 border border-[#c1262c] text-[#c1262c] !bg-[#fff1da] hover:!bg-white text-[16px] md:text-[14px] xl:text-[20px]"
+                          className="mt-4 border border-[#c1262c] text-[#c1262c] !bg-[#fff1da] hover:!bg-white"
                           style={{ width: '158px', height: '42px' }}
                         />
                     </div>
@@ -459,24 +325,13 @@ const Home: React.FC = () => {
              </div>
 
              <div className="payment-strip">
-               <div className="flex flex-col items-center justify-center">
-                 <IconTheReadersCombined />
-               </div>
-               
-               <div className="flex flex-col items-center justify-center">
-                 <IconPayment2New />
-               </div>
-               
-               <div className="flex flex-col items-center justify-center gap-1">
+               <div className="payment-icon-wrapper"><IconTheReadersCombined /></div>
+               <div className="payment-icon-wrapper"><IconPayment2New /></div>
+               <div className="payment-icon-wrapper">
                  <IconPayment3 />
-                 <div className="flex flex-col items-center">
-                    <IconPaymentSub5 />
-                 </div>
+                 <IconPaymentSub5 />
                </div>
-               
-               <div className="flex flex-col items-center justify-center">
-                 <IconPayment4 />
-               </div>
+               <div className="payment-icon-wrapper"><IconPayment4 /></div>
              </div>
         </section>
     </main>
